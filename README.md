@@ -1,2 +1,2 @@
 # Female Gaze Archive
- An archive of fils from the female gaze
+ An archive of films from the female gaze
