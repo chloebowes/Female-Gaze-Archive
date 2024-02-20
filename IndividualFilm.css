@@ -1,0 +1,91 @@
+body {
+    background-color: black; 
+    color: white; 
+    margin: 0; 
+    height: 100vh; 
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.filmImageContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: 70%;
+    background-repeat:repeat-y;
+    background-position: 80%;
+    
+    height: 100vh;
+    width: 100vw;
+    filter: grayscale(100%);
+    opacity: 0.55; 
+}
+
+.redRectangle {
+    position: absolute;
+    top: 0;
+    left: 10%; 
+    width: 400px;
+    height: 85%;
+    background-color: rgba(255, 0, 0, 0.67); 
+    margin-top: 6%;
+    margin-bottom: 5%;
+}
+
+h2 {
+    font-family: "map-roman-normal", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 70px;
+    letter-spacing: 2px;
+    line-height: 1.2em;
+    margin-top: -40px;
+    margin-left: -20px;
+    margin-bottom:0;
+    hyphens: auto;
+    /* overflow-wrap: break-word; */
+}
+
+ h3, p{
+    font-family: "swear-text", serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1rem;
+
+}
+
+h3{
+    line-height: 22px;
+}
+
+p {
+    width: 375px;
+    margin-left: 10px;
+    border-top: 1px solid white;
+    padding-top: 10px;
+    color:white;
+}
+
+#infoRight{
+    text-align:right;
+    position: absolute;
+    right: 0px;
+}
+
+.filmSummary{
+    position: absolute;
+    right: 3.5%;
+    width: 25%;
+}
+
+.duration{
+    border-top: 0px;
+}
+
+.info {
+    position:absolute;
+    bottom:0;
+}
