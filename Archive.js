@@ -215,9 +215,9 @@ function updateStylesheet() {
     var threshold = 768; // mobile width
 
     if (viewportWidth < threshold) {
-        document.getElementById('stylesheet').href = '../archiveMOBILE.css'; // less than 768px, mobile view
+        document.getElementById('stylesheet').href = 'ArchiveMOBILE.css'; // less than 768px, mobile view
     } else {
-        document.getElementById('stylesheet').href = '../archive.css'; // else, desktop view
+        document.getElementById('stylesheet').href = 'Archive.css'; // else, desktop view
     }
 }
 
