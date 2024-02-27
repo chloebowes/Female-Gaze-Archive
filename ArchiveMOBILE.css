@@ -1,0 +1,296 @@
+/* OVERALL SITE  */
+    /* general  */
+        body {
+            background-color: black; 
+            color: white; 
+            margin: 0; 
+            height: 100vh; 
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .hidden{
+            display:none;
+        }
+
+    /* background  */
+        .backgroundImage {
+            position: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-size: 100%;
+            
+            height: 100%;
+            width: 100%;
+            filter: grayscale(100%);
+            opacity: 0.3; 
+        }
+
+    /* all buttons  */
+        button {
+            font-family: "swear-text", serif;
+            font-style: italic;
+            font-weight: 350;
+            font-size: 0.9rem;
+            letter-spacing: .75px;
+            line-height: 1rem;
+            text-align: left;
+            color: rgb(252, 208, 217);
+            text-decoration:none;
+            background-color: rgba(0,0,0,0);
+            border:none;
+            cursor:pointer;
+            
+            display:block;
+            padding-bottom: 5px;
+            padding-top: 5px;
+            width:60%;
+        }
+
+        .button.active {
+            color: white;
+        }
+
+    /* ovrerall film list  */
+        .list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 30%);
+            justify-content: space-between;
+            row-gap: 0.5rem;
+            column-gap: 0.5rem;
+        }
+        
+        .overallList{
+            top: 10%;
+            right: 4%;
+            left: 4%;
+            position: absolute;
+        }
+
+
+
+/* SIDEBAR  */
+    /* ovrerall sidebar  */
+        .sidebar{  
+            z-index: 1; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3%;  /* CHANGES to 100% */
+            width: 100%;
+            box-sizing: border-box;
+            background-color: rgba(250, 145, 165, 0.9);
+            padding-left: 2%;
+            padding-top: 8%;
+            padding-right: 2%;
+            padding-bottom: 2%;
+            overflow-y: hidden;/* CHANGES to auto */
+            justify-content: space-between;
+            flex-direction:column;
+        }
+
+        #sidebarButton{
+            font-style: normal;
+            color: rgb(255, 184, 198, 1);
+            z-index: 2;
+            cursor: pointer;
+            padding-top: 1.5%;
+            padding-bottom: 2%;
+            top: 10%;
+            width: 10%;
+            text-align: right;
+            position: absolute;
+            right: 5%;    
+        }
+
+        .sidebarCollapsed{
+            height: 3%;
+        }
+
+        .filters{
+            padding-top: 4%; /* CHANGES to 0% */
+        }
+
+
+    
+
+/* FOOTER  */
+    /* general footer */
+        .footer{
+            position:fixed;
+            top: calc(100% - 2% - 2%);
+            left:0;
+            height: 5%;
+            width: 100%;
+            box-sizing: border-box;
+            padding-left: 2%;
+            padding-bottom: 10%;
+            padding-right: 2%;
+            display:none; /* CHANGES TO flex */
+            justify-content: space-between;
+            align-items: center;
+        }
+
+    /* logo */
+        #logo{
+            width: 25%;
+            padding-right: 10px;
+            }
+            
+        #logo:hover{
+            cursor:pointer;  
+        }
+        
+    /* sort buttons */
+        .buttonSort{
+            background-color: rgb(171, 95, 109, 0.5);
+            color:white;
+            width: 65px;
+            text-align: center;
+            font-size: 0.6rem;
+        }
+        
+        .buttonSort:hover{
+            background-color: rgba(211, 109, 128, 0.7);
+        }
+        
+     
+    
+
+
+/* FILTERS  */
+    /* filter typography */
+        h2 {
+            font-family: "swear-text", serif;
+            font-style: italic;
+            font-weight: 450;
+            font-size: 1rem;
+            letter-spacing: .75px;
+            width: 100%;
+        }
+
+        #infoRight{
+            text-align:right;
+            position: absolute;
+            right: 7%;
+            margin-top: -4px;
+        }
+        
+        #infoRightStar{
+            text-align:right;
+            position: absolute;
+            right: 7%;
+            margin-top:1.3px;
+            font-style: normal;
+            font-size: 0.7rem;
+        }
+
+    /* collapsible formatting */
+        .filterInformation{
+            max-height:0;
+            overflow-y: auto;
+            margin-bottom: 0px;
+            transition: max-height 0.3s ease-in-out;
+        }
+        
+        .collapsible{
+            font-family: "swear-text", serif;
+            font-style: italic;
+            font-weight: 450;
+            font-size: 1rem;
+            letter-spacing: .75px;
+            line-height: 1.4rem;
+            hyphens: auto;
+            color:white;
+        
+            border-top: 1px solid white;
+            padding-top: 10px;
+            width: 100%;
+            margin-bottom: 5px;
+        }
+        
+        .collapsible:hover span {
+            color: rgba(210, 147, 159, 1)
+        }
+        
+        .collapsible:active span {
+            color: red
+            }
+        
+        .collapsible:active{
+            color: red;
+        }
+        .button:active{
+            color: rgba(250, 145, 165, 0.55);
+        }
+
+    /* chloe's picks */
+        #chloe{
+            color:white;
+            border-top: 1px solid white;
+            padding-top: 0px;
+            width: 100%;
+            margin-bottom: 5px;
+        }
+        
+        #chloe:active{
+            color: red;
+        }
+        
+        #chloe:hover span {
+            color: rgba(210, 147, 159, 1)
+            }
+        
+         #chloe:active span{
+            color: red;
+            }
+
+        
+        
+    
+
+/* FILMS */
+    /* film titles typography */
+        h3{
+            font-family: "map-roman-normal", serif;
+            font-weight: 500;
+            font-style: normal;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            line-height: 1rem;
+            margin-top: 10px;
+            hyphens: auto;
+            overflow-wrap: break-word;
+            text-align: left;
+            color: rgba(210, 147, 159, 1); 
+            text-transform:capitalize;
+        }
+
+    /* individual film containers  */
+        .filterDiv {
+            border: 0px solid white;
+        }
+
+    /* film images  */
+        #filmCover{
+            width: 100%;
+            filter: grayscale(100);
+        }
+
+        .filterDiv:hover #filmCover{
+            filter:sepia(100%) invert(19%) hue-rotate(317deg)
+            contrast(250%) saturate(400%) brightness(0.75);
+            cursor:pointer;
+        }
+
+        .filterDiv:hover h3{
+            color: rgb(204,0,0,1);
+            cursor: pointer;
+        }
+
+
+
+
+
+

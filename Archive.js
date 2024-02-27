@@ -45,6 +45,35 @@ document.addEventListener("DOMContentLoaded", function () {
      });
  });
 
+
+
+// MOBILE VIEW MENU BAR COLLAPSE
+document.addEventListener("DOMContentLoaded", function () {
+    // Select elements
+    var sidebarButton = document.getElementById("sidebarButton");
+    var sidebar = document.querySelector(".sidebar");
+    var filters = document.querySelectorAll(".filters");
+    var footer = document.querySelector(".footer");  // Corrected the selector
+    var sortingButtons = document.querySelectorAll(".buttonSort");
+
+    // click function for menu bar button
+    sidebarButton.addEventListener("click", function () {
+        // Changes to css
+        sidebar.style.height = sidebar.style.height === "3%" ? "100%" : "3%";
+        sidebar.style.overflowY = sidebar.style.overflowY === "hidden" ? "auto" : "hidden";
+        sidebarButton.style.top = sidebarButton.style.top === "10%" ? "0.4%" : "10%";
+        filters.forEach(function (filter) {
+            filter.style.paddingTop = filter.style.paddingTop === "4%" ? "0%" : "4%";
+        });
+
+        // Change display property of .footer to flex
+        footer.style.display = footer.style.display === "none" ? "flex" : "none";
+    });
+});
+
+
+
+
 //FILTERING SYSTEM
 function filterGenre(e) {
     const filterButtons = document.querySelectorAll(".filterOption"); // gets filter buttons
@@ -169,6 +198,30 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+
+
+
+//CHANGE TO MOBILE VIEW
+function updateStylesheet() {
+    var viewportWidth = window.innerWidth || document.documentElement.clientWidth; // get width of view window
+    var threshold = 768; // mobile width
+
+    if (viewportWidth < threshold) {
+        document.getElementById('stylesheet').href = 'archiveMOBILE.css'; // less than 768px, mobile view
+    } else {
+        document.getElementById('stylesheet').href = 'archive.css'; // else, desktop view
+    }
+}
+
+// Initial update on page load
+updateStylesheet();
+
+// Update on window resize
+window.addEventListener('resize', updateStylesheet);
+
+
+
 
 
 //SOURCE CODE (modified with chat GPT to troubleshoot): 
