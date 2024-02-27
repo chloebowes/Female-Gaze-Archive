@@ -6,6 +6,13 @@ const footer = document.getElementById('footer');
 const noHoverSrc = 'eyesClosed.png'; // Eyes closed image by default
 const hoverSrc = 'eyesOpen.png'; // Eyes open image on hover
 
+// Initial update on page load
+updateStylesheet();
+// Update on window resize
+window.addEventListener('resize', updateStylesheet);
+
+
+
 //LOGO HOVER
 footer.addEventListener('mouseover', () => {
     logo.src = hoverSrc; // on hover it will change the image source 
@@ -214,11 +221,6 @@ function updateStylesheet() {
     }
 }
 
-// Initial update on page load
-updateStylesheet();
-
-// Update on window resize
-window.addEventListener('resize', updateStylesheet);
 
 
 
