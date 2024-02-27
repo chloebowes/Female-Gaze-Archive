@@ -21,8 +21,8 @@
             justify-content: center;
             background-size: 100%;
             
-            height: 100%;
-            width: 100%;
+            height: 175%;
+            width: 175%;
             filter: grayscale(100%);
             opacity: 0.3; 
         }
@@ -80,7 +80,7 @@
             height: 3%;  /* CHANGES to 100% */
             width: 100%;
             box-sizing: border-box;
-            background-color: rgba(250, 145, 165, 0.9);
+            background-color: rgba(129, 76, 86, 0.95);
             padding-left: 2%;
             padding-top: 8%;
             padding-right: 2%;
