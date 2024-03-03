@@ -86,15 +86,24 @@ function filterGenre(e) {
     const filterButtons = document.querySelectorAll(".filterOption"); // gets filter buttons
     const filmItems = document.querySelectorAll(".list .filterDiv"); // gets films
 
-    let filter = e.target.dataset.filter; // e.target=clicked element
-    let filterType = e.target.parentElement.parentElement.querySelector("span").innerText.toLowerCase(); //gets data-filter value
+    // Use the 'data-filter' attribute directly or default to null if undefined
+    let filter = e.target.dataset.filter || null; // e.target=clicked element
 
-    //makes the clicked filter active
-    e.target.classList.toggle('active'); 
-    if (e.target.classList.contains('active')) {
-        activeFilters.push({ type: filterType, filter: filter });
-    } else {
-        activeFilters = activeFilters.filter(f => f.filter !== filter || f.type !== filterType);
+    // Handle the special case for Chloe's Picks
+    if (!filter && e.target.id === "chloe") {
+        filter = "chloe";
+    }
+
+    let filterType = e.target.parentElement.parentElement.querySelector("span").innerText.toLowerCase(); // gets data-filter value
+
+    // makes the clicked filter active
+    if (filter) {
+        e.target.classList.toggle('active');
+        if (e.target.classList.contains('active')) {
+            activeFilters.push({ type: filterType, filter: filter });
+        } else {
+            activeFilters = activeFilters.filter(f => f.filter !== filter || f.type !== filterType);
+        }
     }
 
     //extracts filters from each film, checks if they match the active filters
@@ -112,34 +121,37 @@ function filterGenre(e) {
     });
 }
 
+
+//CHLOE'S PICKS
 //CHLOE'S PICKS
 document.getElementById("chloe").addEventListener("click", function () {
-    filterChloe(); // on click, trigger the filterChloe funcition
+    filterGenre({ target: { id: "chloe" } }); // Manually create an event-like object for Chloe's Picks
 });
-function filterChloe() {
-    const chloeFilter = 'chloe'; // filter-value is chloe
-    const filmItems = document.querySelectorAll(".list .filterDiv"); // selects all films
 
-    //for each film, check if 'chloe' is present in the class
-    filmItems.forEach(item => {
-        const isChloeFilm = item.classList.contains(chloeFilter);
+// document.getElementById("chloe").addEventListener("click", function () {
+//     filterGenre(chloe); // on click, trigger the filtering option funcition
+// });
+// function filterChloe() {
+//     const chloeFilter = 'chloe'; // filter-value is chloe
+//     const filmItems = document.querySelectorAll(".list .filterDiv"); // selects all films
 
-        //check if there are any current active filters 
-        const matchesFilters = activeFilters.every(({ filter }) => item.classList.contains(filter));
+//     //for each film, check if 'chloe' is present in the class
+//     filmItems.forEach(item => {
+//         const isChloeFilm = item.classList.contains(chloeFilter);
 
-        //show or hide films if they match
-        if (activeFilters.length === 0 && !isChloeFilm) {
-            item.classList.add('hidden');
-        } else if ((activeFilters.length === 0 || matchesFilters) && isChloeFilm) {
-            item.classList.remove('hidden');
-        } else {
-            item.classList.add('hidden');
-        }
-    });
+//         //check if there are any current active filters 
+//         const matchesFilters = activeFilters.every(({ filter }) => item.classList.contains(filter));
 
-    //update the order of films shown
-    updateSortOrder();
-}
+//         //show or hide films if they match
+//         if (activeFilters.length === 0 && !isChloeFilm) {
+//             item.classList.add('hidden');
+//         } else if ((activeFilters.length === 0 || matchesFilters) && isChloeFilm) {
+//             item.classList.remove('hidden');
+//         } else {
+//             item.classList.add('hidden');
+//         }
+//     });
+// }
 
 //SORTING SYSTEM
 document.addEventListener("DOMContentLoaded", function () {

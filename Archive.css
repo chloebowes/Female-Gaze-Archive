@@ -52,6 +52,10 @@
         color: white;
     }
 
+    #chloe.active{
+        color:red;
+    }
+
 /* ovrerall sidebar  */
     .sidebar{   
         position: fixed;
@@ -168,6 +172,7 @@
         overflow-y: auto;
         margin-bottom: 0px;
         transition: max-height 0.3s ease-in-out;
+        padding-left: 5%;
     }
     
     .collapsible{
@@ -232,8 +237,8 @@
         font-family: "map-roman-normal", serif;
         font-weight: 500;
         font-style: normal;
-        font-size: 0.75rem;
-        letter-spacing: 0.5px;
+        font-size: 0.85rem;
+        letter-spacing: 0.05rem;
         line-height: 1rem;
         margin-top: 10px;
         hyphens: auto;
