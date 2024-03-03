@@ -90,16 +90,17 @@ function filterGenre(e) {
     let filter = e.target.dataset.filter || null; // e.target=clicked element
 
     // Handle the special case for Chloe's Picks
-    if (!filter && e.target.id === "chloe") {
+    if (!filter && e.currentTarget.dataset.filter === "chloe") {
         filter = "chloe";
     }
 
-    let filterType = e.target.parentElement.parentElement.querySelector("span").innerText.toLowerCase(); // gets data-filter value
+    let filterType = e.target.parentElement.parentElement.querySelector("span");
+    filterType = filterType ? filterType.innerText.toLowerCase() : null; // gets data-filter value
 
     // makes the clicked filter active
     if (filter) {
-        e.target.classList.toggle('active');
-        if (e.target.classList.contains('active')) {
+        e.currentTarget.classList.toggle('active');
+        if (e.currentTarget.classList.contains('active')) {
             activeFilters.push({ type: filterType, filter: filter });
         } else {
             activeFilters = activeFilters.filter(f => f.filter !== filter || f.type !== filterType);
@@ -111,8 +112,7 @@ function filterGenre(e) {
         const itemFilters = item.classList.value.split(' ').filter(f => f !== 'filterDiv' && f !== 'hidden');
         const matchesFilters = activeFilters.every(({ filter }) => itemFilters.includes(filter));
 
-
-    //shows or hides the films by applying hidden css filter
+        //shows or hides the films by applying hidden CSS filter
         if (activeFilters.length === 0 || matchesFilters) {
             item.classList.remove('hidden');
         } else {
@@ -121,37 +121,6 @@ function filterGenre(e) {
     });
 }
 
-
-//CHLOE'S PICKS
-//CHLOE'S PICKS
-document.getElementById("chloe").addEventListener("click", function () {
-    filterGenre({ target: { id: "chloe" } }); // Manually create an event-like object for Chloe's Picks
-});
-
-// document.getElementById("chloe").addEventListener("click", function () {
-//     filterGenre(chloe); // on click, trigger the filtering option funcition
-// });
-// function filterChloe() {
-//     const chloeFilter = 'chloe'; // filter-value is chloe
-//     const filmItems = document.querySelectorAll(".list .filterDiv"); // selects all films
-
-//     //for each film, check if 'chloe' is present in the class
-//     filmItems.forEach(item => {
-//         const isChloeFilm = item.classList.contains(chloeFilter);
-
-//         //check if there are any current active filters 
-//         const matchesFilters = activeFilters.every(({ filter }) => item.classList.contains(filter));
-
-//         //show or hide films if they match
-//         if (activeFilters.length === 0 && !isChloeFilm) {
-//             item.classList.add('hidden');
-//         } else if ((activeFilters.length === 0 || matchesFilters) && isChloeFilm) {
-//             item.classList.remove('hidden');
-//         } else {
-//             item.classList.add('hidden');
-//         }
-//     });
-// }
 
 //SORTING SYSTEM
 document.addEventListener("DOMContentLoaded", function () {
